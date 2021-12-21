@@ -1,6 +1,6 @@
 {
   "name": "react-app",
-  "homepage": "http://musaddekali.github.io/react-items-coutn-and-total",
+  "homepage": "http://musaddekali.github.io/crud-todo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
