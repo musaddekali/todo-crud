@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../Context/context';
 
 const initialState = {
     name: '',
@@ -8,44 +8,53 @@ const initialState = {
 
 export default function TodoForm() {
     const [client, setClient] = useState(initialState);
-    const { addNewClient, isEdit, editableItem } = useGlobalContext();
+    const { addNewClient,editableItem, isEdit } = useGlobalContext();
 
     const handleClientData = (e) => {
-            const name = e.target.name;
-            const value = e.target.value;
-            setClient({ ...client, [name]: value });
+        const name = e.target.name;
+        const value = e.target.value;
+        setClient({ ...client, [name]: value });
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (isEdit) {
-            addNewClient(client);
-            setClient(initialState);
-            console.log('this submit for update');
-        } else {
-            const newClient = {
-                id: Date.now(),
-                ...client,
-            }
-            addNewClient(newClient);
-            setClient(initialState);
-            console.log('this submit for new add');
-        }
+        addNewClient(client);
+        setClient(initialState);
     }
-    
-   
-        useEffect(() => {
-            if(isEdit) setClient({ name: editableItem.name, email: editableItem.email });
-        }, [editableItem]);
-    
+
+
+    useEffect(() => {
+        if (isEdit) {
+            setClient({ name: editableItem.name, email: editableItem.email })
+        };
+    },[isEdit,editableItem]);
+
 
     const { name, email } = client;
 
     return (
-        <form onSubmit={handleSubmit} className="todo-form shadow" action="#">
-            <input onChange={handleClientData} type="text" name="name" value={name} className="todo-input" placeholder="Name" />
-            <input onChange={handleClientData} type="email" name="email" value={email} className="todo-input" placeholder="Email" />
-            {!isEdit ? <input type="submit" value="Add" className="todo-submit-btn" /> : <input type="submit" value="Update" className="todo-submit-btn todo-update-btn" />}
+        <form onSubmit={handleSubmit} className="todo-form shadow">
+            <input
+                onChange={handleClientData}
+                type="text"
+                name="name"
+                value={name}
+                className="todo-input"
+                placeholder="Name"
+            />
+            <input
+                onChange={handleClientData}
+                type="email"
+                name="email"
+                value={email}
+                className="todo-input"
+                placeholder="Email"
+            />
+            <input
+                type="submit"
+                value={`${!isEdit ? 'Add' : 'Update'}`}
+                className="todo-submit-btn"
+            />
         </form>
     )
 }

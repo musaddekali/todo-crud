@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../Context/context';
 
 export default function SingleTodo({ client }) {
     const { id, name, email } = client;

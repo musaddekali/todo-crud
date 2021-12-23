@@ -8,25 +8,48 @@ const AppProvider = ({ children }) => {
     const [clients, setClients] = useState([]);
     const [isEdit, setIsEdit] = useState(false);
     const [editableItem, setEditableItem] = useState(null);
+    const [searchText, setSearchText] = useState('');
+
     // add new item 
     const addNewClient = (newClient) => {
-        if (isEdit) {
-            const updatedClients = clients.map((item) => {
-                if (item.id === editableItem.id) {
-                    return {...item, name: newClient.name, email: newClient.email}
-                }
-                return item;
-            });
-            setClients(updatedClients);
-            localStorage.setItem(storageKey, JSON.stringify(updatedClients));
-            setIsEdit(false);
-
+        const { name, email } = newClient;
+        if (name && email) {
+            if (isEdit) {
+                const updatedClients = clients.map((item) => {
+                    if (item.id === editableItem.id) {
+                        return {
+                            ...item,
+                            name: newClient.name,
+                            email: newClient.email
+                        }
+                    }
+                    return item;
+                });
+                setClients(updatedClients);
+                localStorage.setItem(storageKey, JSON.stringify(updatedClients));
+                setIsEdit(false);
+            } else {
+                const newitem = [
+                    {
+                        id: Date.now(),
+                        ...newClient
+                    },
+                    ...clients
+                ];
+                setClients(newitem);
+                localStorage.setItem(storageKey, JSON.stringify(newitem));
+                // setIsEdit(false);
+            }
         } else {
-            setClients([newClient, ...clients]);
-            localStorage.setItem(storageKey, JSON.stringify([newClient, ...clients]));
-            setIsEdit(false);
+            alert('Please Enter Value');
         }
     }
+
+    // Search 
+    const handleSearchTextChange = (text) => {
+        setSearchText(text);
+    }
+
     // delete item
     const removeClient = (id) => {
         const remainClients = clients.filter((item) => item.id !== id);
@@ -58,6 +81,8 @@ const AppProvider = ({ children }) => {
                 isEdit,
                 editClient,
                 editableItem,
+                handleSearchTextChange,
+                searchText,
             }}
         >
             {children}
