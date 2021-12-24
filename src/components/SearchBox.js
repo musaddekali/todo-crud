@@ -5,14 +5,13 @@ function SearchBox() {
     const { handleSearchTextChange, searchText } = useGlobalContext();
 
     return (
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center todo-search">
             <span><FaSearch /> </span>
             <input
                 onChange={(e) => handleSearchTextChange(e.target.value)}
                 type="text"
                 placeholder="Search..."
                 value={searchText}
-                className="todo-input mt-3 ms-3"
             />
         </div>
     )
