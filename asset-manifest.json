@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/todo-crud/static/css/main.4f2de126.chunk.css",
+    "main.js": "/todo-crud/static/js/main.6c308ec9.chunk.js",
+    "main.js.map": "/todo-crud/static/js/main.6c308ec9.chunk.js.map",
+    "runtime-main.js": "/todo-crud/static/js/runtime-main.f92e8677.js",
+    "runtime-main.js.map": "/todo-crud/static/js/runtime-main.f92e8677.js.map",
+    "static/css/2.383c0125.chunk.css": "/todo-crud/static/css/2.383c0125.chunk.css",
+    "static/js/2.857b167d.chunk.js": "/todo-crud/static/js/2.857b167d.chunk.js",
+    "static/js/2.857b167d.chunk.js.map": "/todo-crud/static/js/2.857b167d.chunk.js.map",
+    "index.html": "/todo-crud/index.html",
+    "static/css/2.383c0125.chunk.css.map": "/todo-crud/static/css/2.383c0125.chunk.css.map",
+    "static/css/main.4f2de126.chunk.css.map": "/todo-crud/static/css/main.4f2de126.chunk.css.map",
+    "static/js/2.857b167d.chunk.js.LICENSE.txt": "/todo-crud/static/js/2.857b167d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f92e8677.js",
+    "static/css/2.383c0125.chunk.css",
+    "static/js/2.857b167d.chunk.js",
+    "static/css/main.4f2de126.chunk.css",
+    "static/js/main.6c308ec9.chunk.js"
+  ]
+}
