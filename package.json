@@ -1,6 +1,6 @@
 {
   "name": "react-app",
-  "homepage": "http://musaddekali.github.io/crud-todo",
+  "homepage": "http://musaddekali.github.io/todo-crud",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
